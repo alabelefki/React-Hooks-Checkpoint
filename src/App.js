@@ -1,9 +1,11 @@
 import './App.css';
 import React, {useState} from "react";
 import NavBar from './components/NavBar.js';
-import Filter from './components/Filter '
-import MoviesData from './components/MoviesData.js'
+import Filter from './components/Filter ';
+import MoviesData from './components/MoviesData.js';
+import DescriptionMovie from './components/DescriptionMovie.js';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { Route ,Routes} from "react-router-dom";
 
 
 
@@ -21,6 +23,7 @@ function App() {
         <NavigateNextIcon />
         </h3>
 
+        
       <NavBar 
           titleSearch={titleSearch}
           movieName={movieName} 
@@ -29,12 +32,15 @@ function App() {
           setRatingSearch={setRatingSearch}
           ratingSearch ={ratingSearch}
       />
-
+             
       <Filter 
           movieName={movieName} 
           titleSearch={titleSearch} 
           ratingSearch={ratingSearch}   
       />
+      <Routes>
+      <Route path="/:title/:id" element={<DescriptionMovie />} />
+      </Routes>
     </div>
   );
 }

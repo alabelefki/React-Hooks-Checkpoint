@@ -1,6 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactStars from "react-rating-stars-component";
+import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -8,6 +11,11 @@ export default function MovieCard({items}) {
     const ratingChanged = (newRating) => {
         console.log(newRating);
       };
+
+    // const navigate = useNavigate();
+    
+    
+    
     return(
     <div>
             <div>
@@ -18,7 +26,7 @@ export default function MovieCard({items}) {
                                 <ReactStars  classNames="rating"
                                     count={5}
                                     onChange={ratingChanged}
-                                    size={22}
+                                    size={12}
                                     isHalf={false}
                                     emptyIcon={<i className="far fa-star"></i>}
                                     halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -26,6 +34,13 @@ export default function MovieCard({items}) {
                                     activeColor="#ffd700"
                                     value={items.rating}
                                 /> 
+
+                                <Link to={`/${items.title}/${items.id}`}>
+                                    <Button variant="primary">
+                                        Play Now
+                                    </Button>
+                                </Link>
+                            
                             </div>
                     </div>
             </div>
